@@ -1,7 +1,7 @@
 # INSTAGRAM LOOK A LIKE (HOMEWORK CM)
 
 Demo Video at:
-[Demo Video](https://youtu.be/YLkM03ju6-8)
+[Demo Video](https://youtu.be/A8ppQiyzSO4?si=cBL8QbZfEoBWuT15)
 
 ## Goals
 
@@ -61,3 +61,5 @@ Demo Video at:
     - Camera Sensor 
 10. **Add Publication Page**
     - Upload picture from phone galery
+11. **Chat Page**
+    - Send message to friends (Shared Preferences)
