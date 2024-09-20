@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import 'package:instagram_ui/pages/UserMap.dart';
 
 class UserProfile extends StatelessWidget {
   @override
@@ -189,6 +190,16 @@ class UserProfile extends StatelessWidget {
                 'Welcome to my instagram clone profile' +
                     ' - Miguel Miragaia',),
           ),
+          IconButton(
+            icon: Icon(Icons.map),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LocationPage()),
+              );
+            },
+          ),
+
 
           // Add butons profile instagram to edit profile, share, and discover persons
           Padding(
