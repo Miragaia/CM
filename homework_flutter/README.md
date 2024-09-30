@@ -18,7 +18,7 @@ Demo Video at:
 | Use of Shared Preferences | X      |
 | Realistic Data (Some adaptability) | X     | 
 | Extras (Camera Sensor, File Directorie)   |   X |
-| Extra Extra (HearRate Sensor Smartwatch)   |   X |
+| Extra Extra (HeartRate Sensor Smartwatch)   |   X |
 
 
 ## How to run
