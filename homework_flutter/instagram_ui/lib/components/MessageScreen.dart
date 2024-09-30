@@ -21,13 +21,13 @@ class MessagesScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Messages'),
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: const Color.fromARGB(255, 66, 67, 68),
       ),
       body: FutureBuilder(
         future: Future.wait([
-          loadLastMessage('User 2'),
-          loadLastMessage('User 3'),
-          loadLastMessage('User 4'),
+          loadLastMessage('Antonio'),
+          loadLastMessage('Ricardo'),
+          loadLastMessage('Maria'),
         ]),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -38,11 +38,11 @@ class MessagesScreen extends StatelessWidget {
           return ListView(
             children: [
               _buildContactTile(
-                  context, 'User 2', lastMessages[0] ?? "Hello my old friend!"),
+                  context, 'Antonio', lastMessages[0] ?? "Hello my old friend!"),
               _buildContactTile(
-                  context, 'User 3', lastMessages[1] ?? "Do you want to come by?"),
+                  context, 'Ricardo', lastMessages[1] ?? "Do you want to come by?"),
               _buildContactTile(
-                  context, 'User 4', lastMessages[2] ?? "How are you doing?"),
+                  context, 'Maria', lastMessages[2] ?? "How are you doing?"),
             ],
           );
         },
@@ -65,7 +65,7 @@ class MessagesScreen extends StatelessWidget {
       },
       leading: CircleAvatar(
         radius: 28,
-        backgroundColor: Colors.blueAccent,
+        backgroundColor: const Color.fromARGB(255, 93, 89, 95),
         child: Text(
           contactName[0],
           style: TextStyle(

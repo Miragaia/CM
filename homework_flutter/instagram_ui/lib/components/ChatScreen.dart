@@ -34,7 +34,6 @@ class _ChatScreenState extends State<ChatScreen> {
             .toList();
       });
     } else {
-      // If no stored messages, you can add a default message or leave it empty
       setState(() {
         messages.addAll([
           {'sender': widget.contactName, 'content': widget.lastMessage},
