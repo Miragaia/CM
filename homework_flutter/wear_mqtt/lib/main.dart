@@ -86,11 +86,10 @@ class _HeartRateMonitorState extends State<HeartRateMonitor> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Heart Rate Monitor')),
       body: Center(
         child: Text(
           'Heart Rate: ${heartRate.round()} bpm',
-          style: const TextStyle(fontSize: 24, color: Colors.white),
+          style: const TextStyle(fontSize: 14, color: Colors.white),
         ),
       ),
     );
