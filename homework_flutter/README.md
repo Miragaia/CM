@@ -18,6 +18,7 @@ Demo Video at:
 | Use of Shared Preferences | X      |
 | Realistic Data (Some adaptability) | X     | 
 | Extras (Camera Sensor, File Directorie)   |   X |
+| Extra Extra (HearRate Sensor Smartwatch)   |   X |
 
 
 ## How to run
@@ -38,6 +39,7 @@ Demo Video at:
     - Profile Picture
     - Name
     - Bio
+    - HeartRate (Integrated with Smartwatch Connection)
     - Profile Info
     - Posts
     - Reels
