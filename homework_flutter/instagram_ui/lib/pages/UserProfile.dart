@@ -1,11 +1,33 @@
 import 'dart:ffi';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'dart:io';
-import 'package:image_picker/image_picker.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:instagram_ui/services/MqttService.dart';
 
-class UserProfile extends StatelessWidget {
+class UserProfile extends StatefulWidget {
+  @override
+  _UserProfileState createState() => _UserProfileState();
+}
+
+class _UserProfileState extends State<UserProfile> {
+  final storage = const FlutterSecureStorage();
+  String heartRate = "0";
+
+  @override
+  void initState() {
+    super.initState();
+    _listenToMqttUpdates();
+  }
+
+  void _listenToMqttUpdates() {
+    final mqttService = MqttService();
+    mqttService.initializeMqttClient();
+    mqttService.heartRateUpdates.listen((sensorData) {
+      setState(() {
+        heartRate = sensorData;
+      });
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -126,7 +148,6 @@ class UserProfile extends StatelessWidget {
                       Text('Logout'),
                     ],
                   ),
-                  // ao clicar vai para a tela de login
                   onTap: () {
                     Navigator.push(
                       context,
@@ -229,28 +250,29 @@ class UserProfile extends StatelessWidget {
                     child: Text('Share', style: TextStyle(color: Colors.black)),
                   ),
                 ),
-                SizedBox(width: 2),
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                      side: MaterialStateProperty.all<BorderSide>(BorderSide(
-                        color: Colors.black,
-                      )), // Definir borda preta
-                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                      ),
-                    ),
-                    child: Icon(Icons.person_add, color: Colors.black),
-                  ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(6.0),
+            child: Row(
+              children: [
+                Text(
+                  'Heart Rate: ',
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  '$heartRate',
+                  style: TextStyle(fontSize: 16),
                 ),
               ],
             ),
           ),
 
-          // add a text - "Stories Highlights" com uma stea para baixo para ver mais e ao clicar abre o que eu colcoar a seguir
+          Divider(
+            color: Colors.black,
+            thickness: 0.5,
+          ),
 
           Padding(
             padding: const EdgeInsets.all(6.0),
